@@ -21,17 +21,7 @@ public class View extends JFrame {
         line = new JRadioButton("Line");
         circle = new JRadioButton("Circle");
 
-        ButtonGroup group = new ButtonGroup();
-        settings.setSize(800,50);
-        canvas.setSize(800,750);
-        settings.setBackground(new Color(255, 218, 185));
-        canvas.setBackground(new Color(250, 240, 230));
-        group.add(line);
-        group.add(circle);
-        settings.add(line);
-        settings.add(circle);
-        add(settings);
-        add(canvas);
+        interfaceCreator();
 
         addMouseListener(new MouseListener() {
             @Override
@@ -74,6 +64,19 @@ public class View extends JFrame {
         });
     }
 
+    private void interfaceCreator(){
+        ButtonGroup group = new ButtonGroup();
+        settings.setSize(800,50);
+        canvas.setSize(800,750);
+        settings.setBackground(new Color(255, 218, 185));
+        canvas.setBackground(new Color(250, 240, 230));
+        group.add(line);
+        group.add(circle);
+        settings.add(line);
+        settings.add(circle);
+        add(settings);
+        add(canvas);
+    }
     private void drawLine(int x1, int y1, int x2, int y2){
         Graphics g = getGraphics();
         int pdx, pdy, es, el, err;
